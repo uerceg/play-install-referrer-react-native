@@ -7,11 +7,11 @@
     </tr>
     <tr>
         <td align="left">Current version:</td>
-        <td align="left"><a href=../../../releases/tag/react-v1.1.1><b>1.1.1</b></a></td>
+        <td align="left"><a href=../../releases/tag/v1.1.2><b>1.1.2</b></a></td>
     </tr>
     <tr>
         <td align="left">Troubles?</td>
-        <td align="left"><a href="../../../issues/new"><b>Report an issue</b></a></td>
+        <td align="left"><a href="../../issues/new"><b>Report an issue</b></a></td>
     </tr>
 </table>
 
