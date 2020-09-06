@@ -19,7 +19,7 @@ A clear and concise description of what you expected to happen.
 **Environment**
 Please describe your working environment:
 - **play-install-referrer-react-native** plugin version [e.g. v3.0.0].
-- Unity IDE version [e.g. 2017.4.39f1].
+- React Native version [e.g. react-native-cli: 2.0.1, react-native: 0.63.0].
 - Android API [e.g. 29]
 - Device name and model [e.g. Pixel 3XL]
 
