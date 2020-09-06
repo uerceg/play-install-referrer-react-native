@@ -1,3 +1,9 @@
+### Version 1.1.2 [7th September 2020]
+#### Changed
+- Changed **package.json** `homepage` value to hopefully make README visible at https://www.npmjs.com/package/react-native-play-install-referrer.
+
+---
+
 ### Version 1.1.1 [12th July 2020]
 #### Changed
 - Changed **package.json** `homepage` value to hopefully make README visible at https://www.npmjs.com/package/react-native-play-install-referrer. Spoiler: I failed. New attempt(s) coming soon, stay tuned.
