@@ -1,0 +1,24 @@
+{
+  "name": "react-native-play-install-referrer",
+  "version": "1.1.1",
+  "description": "Play Install Referrer Library wrapper for React Native",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ugi/play-install-referrer-multiplatform.git"
+  },
+  "keywords": [
+    "react-native",
+    "mobile",
+    "android",
+    "google",
+    "install-referrer",
+    "play-install-referrer"
+  ],
+  "author": "Uglješa Erceg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ugi/play-install-referrer-multiplatform/issues"
+  },
+  "homepage": "https://github.com/ugi/play-install-referrer-multiplatform/blob/master/react-native/README.md"
+}
