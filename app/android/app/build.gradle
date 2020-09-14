@@ -134,6 +134,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        // https://stackoverflow.com/questions/61479338/android-studio-react-native-build-fails
+        multiDexEnabled true
     }
     splits {
         abi {
