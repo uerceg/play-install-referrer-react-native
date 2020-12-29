@@ -1,6 +1,6 @@
 {
   "name": "react-native-play-install-referrer",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Play Install Referrer Library wrapper for React Native",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,7 @@
     "install-referrer",
     "play-install-referrer"
   ],
-  "author": "Uglješa Erceg",
+  "author": "uerceg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ugi/play-install-referrer-react-native/issues"

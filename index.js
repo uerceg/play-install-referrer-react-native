@@ -1,10 +1,10 @@
 //
 //  index.js
 //  play-install-referrer-react-native
-//  version: 1.1.5
+//  version: 1.1.6
 //
-//  Created by Uglješa Erceg (@ugi) on 24th April 2020.
-//  Copyright (c) 2020 Uglješa Erceg. All rights reserved.
+//  Created by Uglješa Erceg (@uerceg) on 24th April 2020.
+//  Copyright (c) 2020 uerceg. All rights reserved.
 //
 
 'use strict';
