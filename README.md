@@ -88,6 +88,14 @@ Important thing to notice is that in order to work properly, Play Install Referr
 
 Play Install Referrer Library is added to **react-native-play-install-referrer** plugin as an [Gradle dependency](./plugin/android/build.gradle#L30) and it will automatically make sure that manifest file ends up with above mentioned permission added to it upon building your app.
 
+## Example app
+
+You can find example app using **react-native-play-install-referrer** plugin inside **app** folder of this repository. In case you want to run the app (with re-adding plugin), you can run this command **inside app folder**:
+
+```
+yarn remove react-native-play-install-referrer && yarn add ../ && react-native run-android
+```
+
 ## Todos
 
 List of tasks to be done in this repository can be found in [here](./TODO.md).
