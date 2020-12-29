@@ -15,7 +15,7 @@
     "install-referrer",
     "play-install-referrer"
   ],
-  "author": "Uglješa Erceg",
+  "author": "uerceg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ugi/play-install-referrer-react-native/issues"
