@@ -6,7 +6,8 @@ Latest version of this plugin will always be the only currently supported one. I
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.1.5   | :white_check_mark: |
+| 1.1.6   | :white_check_mark: |
+| 1.1.5   | :x:                |
 | 1.1.4   | :x:                |
 | 1.1.3   | :x:                |
 | 1.1.2   | :x:                |
