@@ -1,3 +1,12 @@
+### Version 1.1.6 [29th December 2020]
+#### Added
+- Added **Example app** chapter to README.
+
+#### Changed
+- Unified plugin and example app package names (under the hood changes, no affect on plugin functionality).
+
+---
+
 ### Version 1.1.5 [15th September 2020]
 #### Fixed
 - Fixed issue with multiple callback invocation from native code which caused occasional crashes on some devices (https://github.com/uerceg/play-install-referrer-react-native/issues/1).
