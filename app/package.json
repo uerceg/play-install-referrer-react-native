@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
+    "node-notifier": "^9.0.0",
     "react": "16.13.1",
     "react-native": "0.63.0",
-    "react-native-play-install-referrer": "../"
+    "react-native-play-install-referrer": "../",
+    "semver": "^7.3.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
