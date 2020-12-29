@@ -1,6 +1,6 @@
 ### Version 1.1.5 [15th September 2020]
 #### Fixed
-- Fixed issue with multiple callback invocation from native code which caused occasional crashes on some devices (https://github.com/ugi/play-install-referrer-react-native/issues/1).
+- Fixed issue with multiple callback invocation from native code which caused occasional crashes on some devices (https://github.com/uerceg/play-install-referrer-react-native/issues/1).
 
 #### Changed
 - Changed repository structure by moving contents of **plugin** folder to the root of repository to hopefully make README visible at https://www.npmjs.com/package/react-native-play-install-referrer.

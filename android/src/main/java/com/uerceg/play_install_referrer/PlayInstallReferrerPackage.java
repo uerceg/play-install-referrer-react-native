@@ -2,11 +2,11 @@
 //  PlayInstallReferrerPackage.java
 //  play-install-referrer-react-native
 //
-//  Created by Uglješa Erceg (@ugi) on 25th April 2020.
-//  Copyright (c) 2020 Uglješa Erceg. All rights reserved.
+//  Created by Uglješa Erceg (@uerceg) on 25th April 2020.
+//  Copyright (c) 2020 uerceg. All rights reserved.
 //
 
-package com.ugi.play_install_referrer;
+package com.uerceg.play_install_referrer;
 
 import java.util.Arrays;
 import java.util.Collections;

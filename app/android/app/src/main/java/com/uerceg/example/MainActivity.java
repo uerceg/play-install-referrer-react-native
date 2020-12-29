@@ -1,4 +1,4 @@
-package com.example;
+package com.uerceg.example;
 
 import com.facebook.react.ReactActivity;
 
