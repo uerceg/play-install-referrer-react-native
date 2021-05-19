@@ -1,6 +1,6 @@
 
 var PlayInstallReferrer = {};
 
-PlayInstallReferrer.getInstallReferrerInfo = function() {}
+PlayInstallReferrer.getInstallReferrerInfo = function() {};
 
 module.exports = { PlayInstallReferrer }
