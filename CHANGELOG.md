@@ -1,3 +1,9 @@
+### Version 1.1.7 [19th May 2021]
+#### Changed
+- Updated TypeScript definition for callback.
+
+---
+
 ### Version 1.1.6 [29th December 2020]
 #### Added
 - Added **Example app** chapter to README.
