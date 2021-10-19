@@ -3,7 +3,7 @@
 //  play-install-referrer-react-native
 //
 //  Created by Uglješa Erceg (@uerceg) on 24th April 2020.
-//  Copyright (c) 2020 uerceg. All rights reserved.
+//  Copyright (c) 2021 uerceg. All rights reserved.
 //
 
 package com.uerceg.play_install_referrer;
@@ -134,5 +134,17 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
         reactContext
             .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
             .emit(eventName, params);
+    }
+
+    @ReactMethod
+    public void addListener(String eventName) {
+        // trying to fix following warning:
+        // WARN  `new NativeEventEmitter()` was called with a non-null argument without the required `addListener` method.
+    }
+
+    @ReactMethod
+    public void removeListeners(Integer count) {
+        // trying to fix following warning:
+        // WARN  `new NativeEventEmitter()` was called with a non-null argument without the required `removeListeners` method.
     }
 }

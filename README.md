@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td align="left">Current version:</td>
-        <td align="left"><a href=../../releases/tag/v1.1.6><b>1.1.6</b></a></td>
+        <td align="left"><a href=../../releases/tag/v1.1.7><b>1.1.7</b></a></td>
     </tr>
     <tr>
         <td align="left">Troubles?</td>
@@ -19,7 +19,7 @@
 
 More information about Play Install Referrer API can be found in [official Google documentation](https://developer.android.com/google/play/installreferrer/igetinstallreferrerservice).
 
-Version of native Play Install Referrer Library which is being used inside of latest **react-native-play-install-referrer** plugin version is [2.1](https://mvnrepository.com/artifact/com.android.installreferrer/installreferrer/2.1).
+Version of native Play Install Referrer Library which is being used inside of latest **react-native-play-install-referrer** plugin version is [2.2](https://mvnrepository.com/artifact/com.android.installreferrer/installreferrer/2.2).
 
 ## Add plugin to your app
 
