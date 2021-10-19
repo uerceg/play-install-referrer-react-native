@@ -1,6 +1,6 @@
 {
   "name": "react-native-play-install-referrer",
-  "version": "1.2.0",
+  "version": "1.1.7",
   "description": "Play Install Referrer Library wrapper for React Native",
   "main": "index.js",
   "repository": {
