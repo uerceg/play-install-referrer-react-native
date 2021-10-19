@@ -135,4 +135,16 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
             .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
             .emit(eventName, params);
     }
+
+    @ReactMethod
+    public void addListener(String eventName) {
+        // trying to fix following warning:
+        // WARN  `new NativeEventEmitter()` was called with a non-null argument without the required `addListener` method.
+    }
+
+    @ReactMethod
+    public void removeListeners(Integer count) {
+        // trying to fix following warning:
+        // WARN  `new NativeEventEmitter()` was called with a non-null argument without the required `removeListeners` method.
+    }
 }
