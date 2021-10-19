@@ -5421,7 +5421,7 @@ react-native-codegen@^0.0.7:
     nullthrows "^1.1.1"
 
 react-native-play-install-referrer@../:
-  version "1.1.6"
+  version "1.1.7"
 
 react-native@0.66.1:
   version "0.66.1"
