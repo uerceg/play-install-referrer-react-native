@@ -19,7 +19,7 @@
 
 More information about Play Install Referrer API can be found in [official Google documentation](https://developer.android.com/google/play/installreferrer/igetinstallreferrerservice).
 
-Version of native Play Install Referrer Library which is being used inside of latest **react-native-play-install-referrer** plugin version is [2.1](https://mvnrepository.com/artifact/com.android.installreferrer/installreferrer/2.1).
+Version of native Play Install Referrer Library which is being used inside of latest **react-native-play-install-referrer** plugin version is [2.2](https://mvnrepository.com/artifact/com.android.installreferrer/installreferrer/2.2).
 
 ## Add plugin to your app
 

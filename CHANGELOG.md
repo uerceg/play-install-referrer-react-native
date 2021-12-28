@@ -1,6 +1,16 @@
-### Version 1.1.7 [19th May 2021]
+### Version 1.1.8 [28th December 2021]
 #### Changed
 - Updated TypeScript definition for callback.
+- Ignore this module on non-Android platforms.
+
+---
+
+### Version 1.1.7 [20th October 2021]
+#### Changed
+- Updated native Play Install Referrer library to **v2.2**.
+
+#### Fixed
+- Fixed `addListener` and `removeListeners` warnings ([same issue](https://github.com/react-native-netinfo/react-native-netinfo/issues/486) with [suggested fix](https://github.com/software-mansion/react-native-reanimated/pull/2316/files) which got copy pasted in this plugin as well). Thanks to @mikehardy.
 
 ---
 
