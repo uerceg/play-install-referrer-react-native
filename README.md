@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td align="left">Current version:</td>
-        <td align="left"><a href=../../releases/tag/v1.1.7><b>1.1.7</b></a></td>
+        <td align="left"><a href=../../releases/tag/v1.1.8><b>1.1.8</b></a></td>
     </tr>
     <tr>
         <td align="left">Troubles?</td>

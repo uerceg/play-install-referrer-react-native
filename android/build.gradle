@@ -13,7 +13,7 @@ android {
         minSdkVersion _minSdkVersion
         targetSdkVersion _targetSdkVersion
         versionCode 3
-        versionName "1.1.7"
+        versionName "1.1.8"
     }
 
     buildTypes {
