@@ -2,7 +2,7 @@
 .DS_Store
 
 # example app
-app/
+example-app-js/
 
 # git
 .git
