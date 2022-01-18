@@ -1,7 +1,7 @@
-### Version 1.1.8 [28th December 2021]
+### Version 1.1.8 [18th January 2022]
 #### Changed
 - Updated TypeScript definition for callback.
-- Ignore this module on non-Android platforms.
+- Ignored this module on non-Android platforms.
 
 ---
 

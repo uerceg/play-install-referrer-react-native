@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ugi/play-install-referrer-react-native.git"
+    "url": "git+https://github.com/uerceg/play-install-referrer-react-native.git"
   },
   "keywords": [
     "react-native",
@@ -18,7 +18,7 @@
   "author": "uerceg",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ugi/play-install-referrer-react-native/issues"
+    "url": "https://github.com/uerceg/play-install-referrer-react-native/issues"
   },
-  "homepage": "https://github.com/ugi/play-install-referrer-react-native"
+  "homepage": "https://github.com/uerceg/play-install-referrer-react-native"
 }

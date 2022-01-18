@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdkVersion _minSdkVersion
         targetSdkVersion _targetSdkVersion
-        versionCode 3
+        versionCode 4
         versionName "1.1.8"
     }
 
