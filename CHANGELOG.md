@@ -3,8 +3,8 @@
 - Added example app in TypeScript.
 
 #### Changed
-- Updated TypeScript definition for callback.
-- Ignored this module on non-Android platforms.
+- Updated TypeScript definition for callback. (thanks to @apfritts)
+- Ignored this module on non-Android platforms. (thanks to @apfritts)
 
 ---
 
@@ -13,7 +13,7 @@
 - Updated native Play Install Referrer library to **v2.2**.
 
 #### Fixed
-- Fixed `addListener` and `removeListeners` warnings ([same issue](https://github.com/react-native-netinfo/react-native-netinfo/issues/486) with [suggested fix](https://github.com/software-mansion/react-native-reanimated/pull/2316/files) which got copy pasted in this plugin as well). Thanks to @mikehardy.
+- Fixed `addListener` and `removeListeners` warnings ([same issue](https://github.com/react-native-netinfo/react-native-netinfo/issues/486) with [suggested fix](https://github.com/software-mansion/react-native-reanimated/pull/2316/files) which got copy pasted in this plugin as well). (thanks to @mikehardy)
 
 ---
 
