@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td align="left">Current version:</td>
-        <td align="left"><a href=../../releases/tag/v1.1.7><b>1.1.7</b></a></td>
+        <td align="left"><a href=../../releases/tag/v1.1.8><b>1.1.8</b></a></td>
     </tr>
     <tr>
         <td align="left">Troubles?</td>
@@ -90,10 +90,10 @@ Play Install Referrer Library is added to **react-native-play-install-referrer**
 
 ## Example app
 
-You can find example app using **react-native-play-install-referrer** plugin inside [**app**](./app) folder of this repository. In case you want to run the app (with re-adding plugin), you can run this command **inside app folder**:
+You can find example apps using **react-native-play-install-referrer** plugin inside [**example-app-js**](./example-app-js) and [**example-app-ts**](./example-app-ts) folders of this repository. In case you want to run the app (with re-adding plugin), you can run this command **inside app folder**:
 
 ```
-yarn remove react-native-play-install-referrer && yarn add ../ && react-native run-android
+yarn remove react-native-play-install-referrer && yarn add ../ && npx react-native run-android
 ```
 
 ## Todos
