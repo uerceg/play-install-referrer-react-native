@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 
 def _ext = rootProject.ext
 
-def _compileSdkVersion = _ext.has('compileSdkVersion') ? _ext.compileSdkVersion : 31
+def _compileSdkVersion = _ext.has('compileSdkVersion') ? _ext.compileSdkVersion : 35
 def _minSdkVersion = _ext.has('minSdkVersion') ? _ext.minSdkVersion : 16
-def _targetSdkVersion = _ext.has('targetSdkVersion') ? _ext.targetSdkVersion : 31
+def _targetSdkVersion = _ext.has('targetSdkVersion') ? _ext.targetSdkVersion : 35
 
 android {
     compileSdkVersion _compileSdkVersion
@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion _minSdkVersion
         targetSdkVersion _targetSdkVersion
-        versionCode 4
-        versionName "1.1.8"
+        versionCode 10
+        versionName "1.1.9"
     }
 
     buildTypes {

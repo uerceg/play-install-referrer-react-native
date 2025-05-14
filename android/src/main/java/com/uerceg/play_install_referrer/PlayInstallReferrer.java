@@ -8,15 +8,10 @@
 
 package com.uerceg.play_install_referrer;
 
-import android.os.RemoteException;
-
-import java.util.Map;
-
 import javax.annotation.Nullable;
-
+import android.os.RemoteException;
 import com.facebook.react.bridge.*;
-import com.facebook.react.modules.core.*;
-
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
 import com.android.installreferrer.api.ReferrerDetails;
@@ -47,44 +42,52 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                 public void onInstallReferrerSetupFinished(int responseCode) {
                     switch (responseCode) {
                         case InstallReferrerClient.InstallReferrerResponse.OK: {
-                            try {
-                                ReferrerDetails response = referrerClient.getInstallReferrer();
-                                String installReferrer = null;
-                                long referrerClickTimestampSeconds = 0L;
-                                long installBeginTimestampSeconds = 0L;
-                                long referrerClickTimestampServerSeconds = 0L;
-                                long installBeginTimestampServerSeconds = 0L;
-                                String installVersion = null;
-                                boolean googlePlayInstant = false;
-                                if (response != null) {
-                                    installReferrer = response.getInstallReferrer();
-                                    referrerClickTimestampSeconds = response.getReferrerClickTimestampSeconds();
-                                    installBeginTimestampSeconds = response.getInstallBeginTimestampSeconds();
-                                    referrerClickTimestampServerSeconds = response.getReferrerClickTimestampServerSeconds();
-                                    installBeginTimestampServerSeconds = response.getInstallBeginTimestampServerSeconds();
-                                    installVersion = response.getInstallVersion();
-                                    googlePlayInstant = response.getGooglePlayInstantParam();
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        ReferrerDetails response = referrerClient.getInstallReferrer();
+                                        String installReferrer = null;
+                                        long referrerClickTimestampSeconds = 0L;
+                                        long installBeginTimestampSeconds = 0L;
+                                        long referrerClickTimestampServerSeconds = 0L;
+                                        long installBeginTimestampServerSeconds = 0L;
+                                        String installVersion = null;
+                                        boolean googlePlayInstant = false;
+                                        if (response != null) {
+                                            installReferrer = response.getInstallReferrer();
+                                            referrerClickTimestampSeconds = response.getReferrerClickTimestampSeconds();
+                                            installBeginTimestampSeconds = response.getInstallBeginTimestampSeconds();
+                                            referrerClickTimestampServerSeconds = response.getReferrerClickTimestampServerSeconds();
+                                            installBeginTimestampServerSeconds = response.getInstallBeginTimestampServerSeconds();
+                                            installVersion = response.getInstallVersion();
+                                            googlePlayInstant = response.getGooglePlayInstantParam();
 
-                                    // create the map with install referrer details and ping callback
-                                    WritableMap installReferrerInfo = Arguments.createMap();
-                                    installReferrerInfo.putString("installReferrer", installReferrer);
-                                    installReferrerInfo.putString("referrerClickTimestampSeconds", Long.toString(referrerClickTimestampSeconds));
-                                    installReferrerInfo.putString("installBeginTimestampSeconds", Long.toString(installBeginTimestampSeconds));
-                                    installReferrerInfo.putString("referrerClickTimestampServerSeconds", Long.toString(referrerClickTimestampServerSeconds));
-                                    installReferrerInfo.putString("installBeginTimestampServerSeconds", Long.toString(installBeginTimestampServerSeconds));
-                                    installReferrerInfo.putString("installVersion", installVersion);
-                                    installReferrerInfo.putString("googlePlayInstant", Boolean.toString(googlePlayInstant));
-                                    sendEvent(getReactApplicationContext(), "play_install_referrer_value", installReferrerInfo);
-                                } else {
-                                    WritableMap error = Arguments.createMap();
-                                    error.putString("message", "Response from install referrer library was null");
-                                    sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                                            // create the map with install referrer details and ping callback
+                                            WritableMap installReferrerInfo = Arguments.createMap();
+                                            installReferrerInfo.putString("installReferrer", installReferrer);
+                                            installReferrerInfo.putString("referrerClickTimestampSeconds", Long.toString(referrerClickTimestampSeconds));
+                                            installReferrerInfo.putString("installBeginTimestampSeconds", Long.toString(installBeginTimestampSeconds));
+                                            installReferrerInfo.putString("referrerClickTimestampServerSeconds", Long.toString(referrerClickTimestampServerSeconds));
+                                            installReferrerInfo.putString("installBeginTimestampServerSeconds", Long.toString(installBeginTimestampServerSeconds));
+                                            installReferrerInfo.putString("installVersion", installVersion);
+                                            installReferrerInfo.putString("googlePlayInstant", Boolean.toString(googlePlayInstant));
+                                            sendEvent(getReactApplicationContext(), "play_install_referrer_value", installReferrerInfo);
+                                        } else {
+                                            WritableMap error = Arguments.createMap();
+                                            error.putString("message", "Response from install referrer library was null");
+                                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                                        }
+                                    } catch (RemoteException ex) {
+                                        WritableMap error = Arguments.createMap();
+                                        error.putString("message", "Exception while reading install referrer info: " + ex.getMessage());
+                                        sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                                    } finally {
+                                        // Clean up the connection
+                                        referrerClient.endConnection();
+                                    }
                                 }
-                            } catch (RemoteException ex) {
-                                WritableMap error = Arguments.createMap();
-                                error.putString("message", "Exception while reading install referrer info: " + ex.getMessage());
-                                sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
-                            }
+                            }).start();
                             break;
                         }
                         case InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED: {
@@ -92,6 +95,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             error.putString("responseCode", "FEATURE_NOT_SUPPORTED");
                             error.putString("message", "FEATURE_NOT_SUPPORTED");
                             sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            referrerClient.endConnection();
                             break;
                         }
                         case InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE: {
@@ -99,6 +103,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             error.putString("responseCode", "SERVICE_UNAVAILABLE");
                             error.putString("message", "SERVICE_UNAVAILABLE");
                             sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            referrerClient.endConnection();
                             break;
                         }
                         case InstallReferrerClient.InstallReferrerResponse.DEVELOPER_ERROR: {
@@ -106,6 +111,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             error.putString("responseCode", "DEVELOPER_ERROR");
                             error.putString("message", "DEVELOPER_ERROR");
                             sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            referrerClient.endConnection();
                             break;
                         }
                         case InstallReferrerClient.InstallReferrerResponse.SERVICE_DISCONNECTED: {
@@ -113,6 +119,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             error.putString("responseCode", "SERVICE_DISCONNECTED");
                             error.putString("message", "SERVICE_DISCONNECTED");
                             sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            referrerClient.endConnection();
                             break;
                         }
                     }
