@@ -1,3 +1,13 @@
+### Version 1.1.9 [14th May 2025]
+#### Fixed
+- Moved fetching of the install referrer information into the background thread (https://github.com/uerceg/play-install-referrer-react-native/pull/44). (thanks to @mariuskurgonas)
+
+#### Changed
+- Updated compile and target SDK API to 35.
+- Made dependabot happy (hopefully).
+
+---
+
 ### Version 1.1.8 [19th January 2022]
 #### Added
 - Added example app in TypeScript.
