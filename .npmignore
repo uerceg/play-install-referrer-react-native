@@ -1,9 +1,8 @@
 # osx
 .DS_Store
 
-# example apps
-example-app-js/
-example-app-ts/
+# example app(s)
+example/
 
 # git
 .git
