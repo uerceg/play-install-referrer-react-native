@@ -1,8 +1,19 @@
 {
   "name": "react-native-play-install-referrer",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "Play Install Referrer Library wrapper for React Native",
   "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "android/build.gradle",
+    "android/src/",
+    "README.md",
+    "MIGRATION.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uerceg/play-install-referrer-react-native.git"
@@ -20,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/uerceg/play-install-referrer-react-native/issues"
   },
-  "homepage": "https://github.com/uerceg/play-install-referrer-react-native"
+  "homepage": "https://github.com/uerceg/play-install-referrer-react-native",
+  "peerDependencies": {
+    "react-native": ">=0.68.0"
+  }
 }
