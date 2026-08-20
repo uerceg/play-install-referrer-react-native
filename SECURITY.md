@@ -2,22 +2,12 @@
 
 ## Supported Versions
 
-Latest version of this plugin will always be the only currently supported one. In case play install referrer library which is included in latest plugin version is not something you can use in your app for whatever reason, feel free to use latest plugin version and native install referrer library of your choice. Plugin should be able to work with it as well, but simply not return values for the fields which might not exist in native install referrer library version which is being used.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.1.9   | :white_check_mark: |
-| 1.1.8   | :x:                |
-| 1.1.7   | :x:                |
-| 1.1.6   | :x:                |
-| 1.1.5   | :x:                |
-| 1.1.4   | :x:                |
-| 1.1.3   | :x:                |
-| 1.1.2   | :x:                |
-| 1.1.1   | :x:                |
-| 1.1.0   | :x:                |
-| 1.0.0   | :x:                |
+Only the latest released version of this plugin is supported. In case the Play Install Referrer Library version it depends on is not something you can use in your app for whatever reason, feel free to use the latest plugin version together with the native install referrer library version of your choice. The plugin should still work with it, it simply will not return values for the fields which might not exist in the native install referrer library version which is being used.
 
 ## Reporting a Vulnerability
 
-In case you encounter any vulnerability or issue with the plugin, feel free to open [new issue](../../issues/new) and report it.
+Please do not report security vulnerabilities through public issues.
+
+Use GitHub's [private vulnerability reporting](../../security/advisories/new) instead. It keeps the report private while it is being looked into, and lets a fix go out before the details are public.
+
+For anything which is not a security issue, a [new issue](../../issues/new) is the right place.
