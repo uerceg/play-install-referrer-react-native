@@ -8,6 +8,8 @@
 
 package com.uerceg.play_install_referrer;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import javax.annotation.Nullable;
 import android.os.RemoteException;
 import com.facebook.react.bridge.*;
@@ -35,6 +37,11 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
         // emitting two event types:
         //  - play_install_referrer_value in case value was successfully read
         //  - play_install_referrer_error in case value failed to be read
+        //
+        // exactly one of them is emitted per call - the service can report a disconnect
+        // after a value has already gone out, and that must not be reported as an error
+        final AtomicBoolean delivered = new AtomicBoolean(false);
+
         try {
             final InstallReferrerClient referrerClient = InstallReferrerClient.newBuilder(getReactApplicationContext()).build();
             referrerClient.startConnection(new InstallReferrerStateListener() {
@@ -75,16 +82,16 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                                             installReferrerInfo.putDouble("installBeginTimestampServerSeconds", (double)installBeginTimestampServerSeconds);
                                             installReferrerInfo.putString("installVersion", installVersion);
                                             installReferrerInfo.putBoolean("googlePlayInstant", googlePlayInstant);
-                                            sendEvent(getReactApplicationContext(), "play_install_referrer_value", installReferrerInfo);
+                                            sendEvent(delivered, "play_install_referrer_value", installReferrerInfo);
                                         } else {
                                             WritableMap error = Arguments.createMap();
                                             error.putString("message", "Response from install referrer library was null");
-                                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                                            sendEvent(delivered, "play_install_referrer_error", error);
                                         }
                                     } catch (RemoteException ex) {
                                         WritableMap error = Arguments.createMap();
                                         error.putString("message", "Exception while reading install referrer info: " + ex.getMessage());
-                                        sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                                        sendEvent(delivered, "play_install_referrer_error", error);
                                     } finally {
                                         // Clean up the connection
                                         referrerClient.endConnection();
@@ -97,7 +104,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "FEATURE_NOT_SUPPORTED");
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -105,7 +112,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "SERVICE_UNAVAILABLE");
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -113,7 +120,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "DEVELOPER_ERROR");
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -121,7 +128,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "SERVICE_DISCONNECTED");
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -129,7 +136,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "PERMISSION_ERROR");
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -139,7 +146,7 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
                             WritableMap error = Arguments.createMap();
                             error.putInt("responseCode", responseCode);
                             error.putString("message", "Unexpected response code arrived: " + responseCode);
-                            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+                            sendEvent(delivered, "play_install_referrer_error", error);
                             referrerClient.endConnection();
                             break;
                         }
@@ -148,14 +155,25 @@ public class PlayInstallReferrer extends ReactContextBaseJavaModule {
 
                 @Override
                 public void onInstallReferrerServiceDisconnected() {
-                    // no need to handle this
+                    // if this arrives before anything was delivered, nothing else is going to
+                    // fire, so report it rather than leaving the callback waiting forever
+                    WritableMap error = Arguments.createMap();
+                    error.putString("message", "Connection to install referrer service was lost");
+                    sendEvent(delivered, "play_install_referrer_error", error);
                 }
             });
         } catch (Throwable ex) {
             WritableMap error = Arguments.createMap();
             error.putString("message", "Exception while starting connection with referrer client: " + ex.getMessage());
-            sendEvent(getReactApplicationContext(), "play_install_referrer_error", error);
+            sendEvent(delivered, "play_install_referrer_error", error);
         }
+    }
+
+    private void sendEvent(AtomicBoolean delivered, String eventName, @Nullable WritableMap params) {
+        if (!delivered.compareAndSet(false, true)) {
+            return;
+        }
+        sendEvent(getReactApplicationContext(), eventName, params);
     }
 
     private void sendEvent(ReactContext reactContext, String eventName, @Nullable WritableMap params) {
